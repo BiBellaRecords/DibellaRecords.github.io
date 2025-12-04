@@ -1,0 +1,329 @@
+/* Variables de Color */
+:root {
+    --color-primary: #FF0000; /* Rojo vibrante */
+    --color-secondary: #FFFFFF; /* Blanco */
+    --color-dark: #1A1A1A; /* Negro profundo para el fondo */
+    --color-text: #FFFFFF;
+}
+
+/* Base y Tipografía */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--color-dark);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-weight: 900; /* Extra bold para impacto */
+    margin-bottom: 1rem;
+}
+
+/* --- HEADER / NAVBAR --- */
+header {
+    background-color: var(--color-dark);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--color-primary); /* Línea roja llamativa */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-large {
+    flex-shrink: 0; 
+}
+
+.logo-img {
+    /* Define el tamaño de tu logo aquí */
+    height: 60px; /* Altura ideal para la cabecera */
+    width: auto; /* Mantiene la proporción */
+    display: block;
+}
+
+.logo-img {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.9)) 
+            drop-shadow(0 0 15px rgba(255, 0, 0, 0.5));
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 15px;
+}
+
+/* --- AJUSTE DE BRILLO Y LEGIBILIDAD PARA NEÓN --- */
+
+/* NEÓN ROJO (Ahora más definido) */
+.neon-red {
+    color: var(--color-primary); /* Rojo puro como color base */
+    text-shadow: 
+        /* Sombras internas y cercanas (más claras) */
+        0 0 4px #fff, /* Blanco sutil para definición interna */
+        0 0 10px var(--color-primary), /* El brillo rojo principal */
+        /* Sombras externas (el halo, con menor opacidad) */
+        0 0 20px rgba(255, 0, 0, 0.4), /* Bajamos la opacidad a 0.4 */
+        0 0 30px rgba(255, 0, 0, 0.2); 
+}
+
+/* NEÓN BLANCO (Ahora más definido) */
+.neon-white {
+    color: var(--color-secondary); /* Blanco puro como color base */
+    text-shadow: 
+        /* Sombras internas y cercanas */
+        0 0 4px #000, /* Negro sutil para contraste interno (opcional) */
+        0 0 10px var(--color-secondary), /* El brillo blanco principal */
+        /* Sombras externas (el halo, con menor opacidad) */
+        0 0 20px rgba(255, 255, 255, 0.4), 
+        0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* --- ESTILOS ADICIONALES PARA EL H1 (Se mantienen) --- */
+.large-neon {
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+#hero h1 {
+    font-size: 4rem; 
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: var(--color-secondary);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.nav-button:hover, .nav-button.active {
+    color: var(--color-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* --- MAIN CONTENT SECTIONS --- */
+main {
+    padding: 2rem 5%;
+    min-height: 80vh;
+}
+
+.content-section {
+    display: none; /* Oculta todas las secciones al inicio */
+    padding: 2rem 0;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.active-section {
+    display: block; /* Muestra la sección activa */
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos de la Sección HERO (Página de inicio) */
+#hero {
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    color: var(--color-primary);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.cta-banner {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+/* --- ESTILOS DE LA LLAMADA A LA ACCIÓN (CTA) --- */
+.cta-banner {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    font-weight: 700;
+    border-radius: 5px;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.cta-banner:hover {
+    background-color: var(--color-secondary);
+}
+
+/* --- ESTILOS DEL VIDEO POP-UP --- */
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); 
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Z-index alto para la ventana emergente */
+    backdrop-filter: blur(5px);
+}
+
+.video-overlay.active {
+    display: flex;
+}
+
+.video-wrapper {
+    position: relative; /* Base para el posicionamiento del botón */
+    width: 90%;
+    max-width: 1000px; 
+    aspect-ratio: 16 / 9; 
+    background: #000;
+}
+
+/* --- ESTILOS PARA LA GALERÍA PRINCIPAL (DEBAJO DEL TÍTULO) --- */
+.hero-gallery {
+    display: flex; /* Usa Flexbox para alineación */
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    gap: 15px; /* Espacio entre las imágenes */
+    margin: 30px 0; /* Espacio superior e inferior */
+    width: 100%;
+    max-width: 900px;
+}
+
+.hero-image {
+    width: 30%; /* Cada imagen ocupa un 30% del contenedor */
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    border: 3px solid var(--color-primary); /* Borde rojo sutil para destacar */
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.05); /* Ligerísimo aumento al pasar el mouse */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Brillo rojo al pasar el mouse */
+}
+
+/* Ajuste de la sección hero para el centrado */
+#hero {
+    /* Asegúrate de que los estilos anteriores de #hero se mantengan, 
+       pero que permitan que el contenido se centre */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 50px; /* Asegura espacio para el contenido */
+}
+
+.close-btn {
+    position: absolute;
+    top: -35px; 
+    right: 0;
+    background: var(--color-primary);
+    color: var(--color-dark);
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 5px;
+    
+    /* Z-INDEX CRUCIAL: Debe ser mayor que cualquier elemento dentro del overlay */
+    z-index: 2005; 
+}
+
+/* Estilos de la Sección TRABAJOS */
+.work-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.work-item {
+    background-color: #2e2e2e;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover {
+    transform: translateY(-5px);
+    border-bottom: 3px solid var(--color-primary);
+}
+
+.work-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.work-item h3 {
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.work-item .genre {
+    color: #aaaaaa;
+    font-size: 0.9rem;
+}
+
+/* Estilos de la Sección CONTACTO */
+.contact-info p {
+    margin: 0.5rem 0;
+}
+
+.social-links a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--color-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #888;
+    font-size: 0.8rem;
+}

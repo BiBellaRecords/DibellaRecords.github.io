@@ -36,11 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Lógica para que el logo regrese al "Hero"
+    // Lógica para que el logo vaya a la sección "TRABAJOS"
     logo.addEventListener('click', () => {
-        showSection('hero');
-        // Quitar la selección del botón del menú
+        showSection('work'); // <--- AHORA MUESTRA LA SECCIÓN DE TRABAJOS
+        
+        // Resalta el botón de 'TRABAJOS' para reflejar la sección activa
         navButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Busca y añade la clase 'active' al botón de TRABAJOS
+        const workButton = document.querySelector('.nav-button[data-section="work"]');
+        if (workButton) {
+             workButton.classList.add('active');
+        }
     });
     
     

@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIBELLA RECORDS - Música que Resuena</title>
+    <title>| DIBELLA RECORDS |</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="app.js" defer></script>
+    <link rel="icon" type="image/png" href="Logo.png">
 </head>
 <body>
 
@@ -15,12 +16,20 @@
     <div class="logo-large">
         <img src="Logo.png" alt="Logo de DIBELLA RECORDS" class="logo-img">
     </div>
-        <nav class="desktop-nav">
+        <div class="menu-container">
+        <button class="hamburger-btn" id="hamburger-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+
+        <nav class="mobile-nav" id="mobile-nav">
             <button class="nav-button" data-section="about">SOBRE NOSOTROS</button>
             <button class="nav-button" data-section="work">TRABAJOS</button>
             <button class="nav-button" data-section="contact">CONTACTO</button>
         </nav>
-        </header>
+    </div>
+</header>
 
     <main>
         <section id="hero" class="active-section">
@@ -38,8 +47,18 @@
     </div>
     
     <a href="#" class="cta-banner" id="show-video-btn">
-        <span>¡Explora nuestros últimos éxitos!</span>
+        <span>¡𝐃𝐞𝐬𝐜𝐮𝐛𝐫𝐢 𝐧𝐮𝐞𝐬𝐭𝐫𝐨 𝐭𝐫𝐚𝐛𝐚𝐣𝐨!</span>
     </a>
+
+    <a href="https://wa.me/5492215251835" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
+    </head>
+    
+</body>
+</html>
 
    <div id="video-container" class="video-overlay">
     <div class="video-wrapper">
@@ -55,58 +74,62 @@
 </section>
 
         <section id="about" class="content-section">
-            <h2>SOBRE NOSOTROS</h2>
-            <p>DiBella Records es una compañía internacional de producción musical, operando mediante una infraestructura digital distribuida que permite coordinar, procesar y entregar proyectos desde múltiples regiones del mundo.
-
-
-Nuestra red integra equipos técnicos, ingenieros y especialistas en mezcla y masterización ubicados en Latinoamérica, Estados Unidos y Europa, conectados a través de un ecosistema propio que garantiza consistencia sonora, tiempos de entrega acelerados y una capacidad de operación continua las 24 horas.
-
-
-A lo largo de los años, Di Bella Records evolucionó de un servicio profesional a convertirse en una cadena global de producción sonora, gestionando miles de mezclas y masterizaciones para artistas, sellos independientes, distribuidoras, creadores de contenido y proyectos internacionales.
-
-
-Gracias a nuestro modelo 100% digital, podemos manejar altos volúmenes de trabajo en simultáneo, asignando proyectos a equipos especializados en distintas zonas horarias, logrando así una operación ágil, escalable y con estándares globales unificados.
-
-
-Hoy, DiBella Records se posiciona como una de las plataformas de audio profesional más versátiles de la industria hispanohablante, colaborando con artistas de múltiples mercados y expandiendo su presencia en América, Europa y nuevas regiones en desarrollo.
-                
-
-Nuestro compromiso es claro: ofrecer un sonido competitivo a nivel mundial, procesos transparentes y una experiencia profesional diseñada para un mercado global en constante crecimiento.</p>
-            <h3>Nuestro Equipo</h3>
-            <ul>
-                <li></li>
-                <li></li>
-                </ul>
-        </section>
-
+    <h2>SOBRE NOSOTROS</h2>
+    
+    <p>𝗗𝗶𝗯𝗲𝗹𝗹𝗮 𝗥𝗲𝗰𝗼𝗿𝗱𝘀 es una compañía internacional de producción musical, operando mediante una infraestructura digital distribuida que permite coordinar, procesar y entregar proyectos desde múltiples regiones del mundo.</p>
+    
+    <p>Nuestra red integra equipos técnicos, ingenieros y especialistas en mezcla y masterización ubicados en Latinoamérica, Estados Unidos y Europa, conectados a través de un ecosistema propio que garantiza consistencia sonora, tiempos de entrega acelerados y una capacidad de operación continua las 24 horas.</p>
+    
+    <p>A lo largo de los años, 𝗗𝗶𝗯𝗲𝗹𝗹𝗮 𝗥𝗲𝗰𝗼𝗿𝗱𝘀 evolucionó de un servicio profesional a convertirse en una cadena global de producción sonora, gestionando miles de mezclas y masterizaciones para artistas, sellos independientes, distribuidoras, creadores de contenido y proyectos internacionales.</p>
+    
+    <p>Gracias a nuestro modelo 100% digital, podemos manejar altos volúmenes de trabajo en simultáneo, asignando proyectos a equipos especializados en distintas zonas horarias, logrando así una operación ágil, escalable y con estándares globales unificados.</p>
+    
+    <p>Hoy, 𝗗𝗶𝗯𝗲𝗹𝗹𝗮 𝗥𝗲𝗰𝗼𝗿𝗱𝘀 se posiciona como una de las plataformas de audio profesional más versátiles de la industria hispanohablante, colaborando con artistas de múltiples mercados y expandiendo su presencia en América, Europa y nuevas regiones en desarrollo.</p>
+    
+    <p>Nuestro compromiso es claro: ofrecer un sonido competitivo a nivel mundial, procesos transparentes y una experiencia profesional diseñada para un mercado global en constante crecimiento.</p>
+</section>
+            
         <section id="work" class="content-section">
             <h2>TRABAJOS DESTACADOS</h2>
             <div class="work-gallery">
+                
                 <div class="work-item">
-                    <img src="placeholder-work-1.jpg" alt="Portada de Producción 1">
-                    <h3>[Título de Canción/Álbum]</h3>
-                    <p>Producido por: **[Nombre Productor]**</p>
-                    <p class="genre">[Género Musical]</p>
-                </div>
+                    <img src="tainy.jpg" alt="Portada de Producción 1">
+                    <h3>𝑺𝑰 𝑻𝑬 𝑽𝑨𝑺</h3>
+                    <p>Producido por: Tainy</p>
+                    <p class="genre">Reggaetón</p>
+                    
+                    <audio controls class="work-audio-player">
+                        <source src="SI TE VAS.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                    </div>
+                
                 <div class="work-item">
-                    <img src="placeholder-work-2.jpg" alt="Portada de Producción 2">
-                    <h3>[Título de Canción/Álbum]</h3>
-                    <p>Producido por: **[Nombre Productor]**</p>
-                    <p class="genre">[Género Musical]</p>
-                </div>
+                    <img src="Biza.jpg" alt="Portada de Producción 2">
+                    <h3>𝑸𝑼𝑬𝑽𝑬𝑫𝑶</h3>
+                    <p>Producido por: Bizarrap</p>
+                    <p class="genre">Trap</p>
+
+                    <audio controls class="work-audio-player">
+                        <source src="Biza1.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                    </div>
+
                 </div>
         </section>
 
         <section id="contact" class="content-section">
             <h2>CONTACTO</h2>
-            <p>¿Listo para trabajar? Hablemos de tu próximo proyecto.</p>
+            <p>Hablemos de tu próximo proyecto.</p>
             <div class="contact-info">
-                <p>📧 **Email de Producción:** contacto@dibellarecords.com</p>
-                <p>📞 **Teléfono:** +XX XXXX XXXX</p>
-                <p>📍 **Estudio Principal:** [Dirección/Ciudad]</p>
+                <p>📧 Email de Producción: dibellarecords@gmail.com</p>
+                <p>📞 Teléfono: 221 525 1835</p>
+                <p>📍 Estudio Principal: La Plata, Buenos Aires</p>
                 <div class="social-links">
-                    <a href="#" target="_blank">Instagram</a> | 
-                    <a href="#" target="_blank">Spotify</a> | 
+                    <a href="https://www.instagram.com/axel_x145/" target="_blank">Instagram</a> | 
+                    <a href="#" target="_blank">WhatsApp</a> | 
                     <a href="#" target="_blank">YouTube</a>
                 </div>
             </div>

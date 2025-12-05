@@ -137,10 +137,15 @@ main {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
     z-index: 9999; 
     transition: transform 0.3s ease;
-
+    
+    /* Centrado Flexbox */
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    justify-content: center; 
+    align-items: center; 
+    
+    /* ❌ ASEGÚRATE DE QUE NO HAYA BORDES AQUI */
+    border: none; 
+    text-decoration: none; /* Asegura que no haya subrayado en el enlace */
 }
 
 .whatsapp-button i {

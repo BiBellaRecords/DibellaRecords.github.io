@@ -1,23 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Lógica de Navegación (Mostrar/Ocultar Secciones) ---
+    // --- 1. Variables Globales de Navegación y Menú ---
     const navButtons = document.querySelectorAll('.nav-button');
     const sections = document.querySelectorAll('.content-section, #hero');
+    const logo = document.querySelector('.logo-large'); 
+    
+    // Variables del Menú Hamburguesa
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
 
+
+    // --- 2. Lógica de Navegación (Mostrar/Ocultar Secciones) ---
     function showSection(targetId) {
-        // 1. Ocultar todas las secciones
+        // Ocultar todas las secciones (incluida #hero)
         sections.forEach(section => {
             section.classList.remove('active-section');
         });
 
-        // 2. Mostrar la sección deseada
+        // Mostrar SÓLO la sección deseada
         const targetSection = document.getElementById(targetId);
         if (targetSection) {
             targetSection.classList.add('active-section');
         }
     }
 
-    // 3. Evento para los botones de navegación (INFO, TRABAJOS, CONTACTO)
+    // Evento para los botones de navegación (INFO, TRABAJOS, CONTACTO)
     navButtons.forEach(button => {
         button.addEventListener('click', (event) => {
             const targetId = event.target.getAttribute('data-section');
@@ -29,8 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Lógica para que el logo regrese al "Hero"
-    const logo = document.querySelector('.logo-large'); 
+    // Lógica para que el logo regrese al "Hero"
     logo.addEventListener('click', () => {
         showSection('hero');
         // Quitar la selección del botón del menú
@@ -38,16 +44,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     
-    // --- 2. Lógica del Video Pop-Up ---
+    // --- 3. Lógica del Menú Hamburguesa ---
+    // Muestra/Oculta el menú al hacer clic en el botón
+    hamburgerBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('active'); 
+        hamburgerBtn.classList.toggle('is-active'); 
+    });
+
+    // Cierra el menú al seleccionar una opción
+    const menuItems = mobileNav.querySelectorAll('.nav-button');
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Se cierra después de hacer clic en cualquier opción
+            mobileNav.classList.remove('active');
+            hamburgerBtn.classList.remove('is-active');
+        });
+    });
+    
+    
+    // --- 4. Lógica del Video Pop-Up para MP4 ---
     const showVideoBtn = document.getElementById('show-video-btn');
     const videoContainer = document.getElementById('video-container');
-    const closeBtn = document.querySelector('.close-btn'); // Correcto: selecciona el botón de cierre
-    const mp4Player = document.getElementById('mp4-player');
+    const closeBtn = document.querySelector('.close-btn');
+    const mp4Player = document.getElementById('mp4-player'); 
 
-    // Función para detener el video al cerrarse
+    // Función para detener el video y cerrar el pop-up
     function stopVideo() {
-        mp4Player.pause(); // Pausa el video
-        mp4Player.currentTime = 0; // Opcional: rebobina al inicio
+        mp4Player.pause(); 
+        mp4Player.currentTime = 0; 
         videoContainer.classList.remove('active');
     }
 
@@ -55,12 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
     showVideoBtn.addEventListener('click', (e) => {
         e.preventDefault(); 
         videoContainer.classList.add('active');
+        
+        // Empieza la reproducción
+        mp4Player.play(); 
     });
 
     // Evento: Cerrar el video al hacer clic en el botón 'X'
-    closeBtn.addEventListener('click'), () => 
+    closeBtn.addEventListener('click', () => {
         stopVideo();
-    
     });
 
     // Evento: Cerrar el video al hacer clic en el fondo oscuro (overlay)
@@ -69,3 +95,5 @@ document.addEventListener('DOMContentLoaded', () => {
             stopVideo();
         }
     });
+    
+});

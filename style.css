@@ -118,14 +118,43 @@ header {
     border-radius: 5px;
 }
 
-/* --- MAIN CONTENT SECTIONS --- */
+/* --- MAIN CONTENT SECTIONS (en style.css) --- */
 main {
     padding: 2rem 5%;
     min-height: 80vh;
 }
 
+/* --- BOTÓN FLOTANTE DE WHATSAPP  --- */
+.whatsapp-button {
+    position: fixed; 
+    width: 60px;
+    height: 60px;
+    bottom: 30px; 
+    right: 30px; 
+    background-color: var(--color-primary); 
+    color: var(--color-secondary); 
+    border-radius: 50px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+    z-index: 9999; 
+    transition: transform 0.3s ease;
+
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.whatsapp-button i {
+    font-size: 30px; 
+}
+
+.whatsapp-button:hover {
+    background-color: var(--color-secondary); 
+    color: var(--color-dark); 
+    transform: scale(1.1); 
+}
+
 .content-section {
-    display: none; /* Oculta todas las secciones al inicio */
+    display: none; /* Oculta todas las secciones */
     padding: 2rem 0;
     animation: fadeIn 0.5s ease-in-out;
 }
@@ -134,10 +163,16 @@ main {
     display: block; /* Muestra la sección activa */
 }
 
-/* Animación de entrada */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Nota: La sección #hero debe estar incluida en las secciones a ocultar/mostrar. 
+   Como #hero NO tiene la clase .content-section, debemos forzar su ocultación 
+   si no está activa. */
+
+/* Ajuste necesario para #hero */
+#hero:not(.active-section) {
+    display: none;
+}
+#hero.active-section {
+    display: flex; /* O block, dependiendo de cómo lo hayas definido */
 }
 
 /* Estilos de la Sección HERO (Página de inicio) */
@@ -312,6 +347,71 @@ main {
     text-decoration: none;
     font-weight: 700;
     margin-right: 15px;
+}
+
+/* --- NUEVOS ESTILOS DEL BOTÓN HAMBURGUESA --- */
+.menu-container {
+    position: relative; /* Base para posicionar el menú desplegable */
+    flex-shrink: 0;
+}
+
+.hamburger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001; /* Asegura que el botón esté encima del contenido */
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-primary); /* Las líneas son rojas */
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* --- ESTILOS DEL MENÚ DESPLEGABLE --- */
+.mobile-nav {
+    position: absolute;
+    top: 100%; /* Coloca el menú justo debajo de la cabecera */
+    right: 0;
+    background-color: var(--color-dark); 
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    padding: 10px 0;
+    min-width: 180px;
+    display: none; /* OCULTO POR DEFECTO */
+    flex-direction: column;
+    z-index: 1000;
+}
+
+/* Estilo para los botones dentro del menú desplegable */
+.mobile-nav .nav-button {
+    width: 100%;
+    text-align: right;
+    padding: 10px 20px;
+}
+
+/* Clase para mostrar el menú (se añade con JavaScript) */
+.mobile-nav.active {
+    display: flex; 
+}
+
+/* Opcional: Estilo para la animación de cierre del botón */
+.hamburger-btn.is-active .bar:nth-child(2) {
+    opacity: 0; /* Oculta la barra central */
+}
+
+.hamburger-btn.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-btn.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 .social-links a:hover {

@@ -312,11 +312,14 @@ main {
 
 .work-item {
     background-color: #2e2e2e;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 20px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Asegura que todo el contenido del card esté centrado */
 }
 
 .work-item:hover {
@@ -325,10 +328,13 @@ main {
 }
 
 .work-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    width: 180px;           /* Ajusta este valor para hacerlas más grandes o pequeñas */
+    height: 180px;          /* Debe ser igual al width para que sea un cuadrado perfecto */
+    object-fit: cover;      /* ESTO ES CLAVE: Recorta la imagen para que no se deforme */
+    border-radius: 10px;    /* Bordes redondeados */
+    margin: 0 auto 15px;    /* Centra la imagen y le da espacio abajo */
+    display: block;         /* Permite el centrado con margin: auto */
+    border: 2px solid var(--color-primary); /* Opcional: un borde rojo para combinar */
 }
 
 #work {
